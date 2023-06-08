@@ -116,14 +116,18 @@ const Navbar = () => {
                             </button></Link>
                         }
                         {
-                            user?.photoURL ?
-                                <img
-                                    src={user?.photoURL}
-                                    alt="User Profile"
-                                    className="w-10 h-10 rounded-full"
-                                    data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} data-tooltip-place="right"
-                                /> :
-                                <img src={nonUser} alt="User Profile" className="w-10 h-10 rounded-full" />
+                            user && <>
+                                {
+                                    user?.photoURL ?
+                                        <img
+                                            src={user?.photoURL}
+                                            alt="User Profile"
+                                            className="w-10 h-10 rounded-full"
+                                            data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} data-tooltip-place="right"
+                                        /> :
+                                        <img src={nonUser} alt="User Profile" className="w-10 h-10 rounded-full" />
+                                }
+                            </>
                         }
                         <Tooltip id="my-tooltip" />
                     </div>
