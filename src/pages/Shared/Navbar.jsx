@@ -2,6 +2,7 @@ import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import { Tooltip } from 'react-tooltip';
 import { Link, NavLink } from 'react-router-dom';
+import nonUser from '../../assets/nonuser.png'
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
@@ -32,14 +33,14 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <Link
-                                    to='/'
+                                    to='/instructors'
                                 >
                                     Instructors
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    to='/'
+                                    to='/classes'
                                 >
                                     Classes
                                 </Link>
@@ -80,7 +81,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to='/v'
+                                to='/instructors'
                                 className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
                             >
                                 Instructors
@@ -88,7 +89,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to='/v'
+                                to='/classes'
                                 className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
                             >
                                 Classes
@@ -115,13 +116,14 @@ const Navbar = () => {
                             </button></Link>
                         }
                         {
-                            user?.photoURL &&
-                            <img
-                                src={user?.photoURL}
-                                alt="User Profile"
-                                className="w-10 h-10 rounded-full"
-                                data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} data-tooltip-place="right"
-                            />
+                            user?.photoURL ?
+                                <img
+                                    src={user?.photoURL}
+                                    alt="User Profile"
+                                    className="w-10 h-10 rounded-full"
+                                    data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} data-tooltip-place="right"
+                                /> :
+                                <img src={nonUser} alt="User Profile" className="w-10 h-10 rounded-full" />
                         }
                         <Tooltip id="my-tooltip" />
                     </div>
