@@ -20,7 +20,7 @@ const Login = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md py-4 px-8 bg-white rounded-md shadow-md">
-                <h2 className="mb-6 text-2xl font-bold text-center">Login</h2>
+                <h2 className="mb-6 text-3xl font-bold text-center">Login</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-4">
                         <label className="block mb-2 font-medium text-gray-800">
@@ -65,7 +65,7 @@ const Login = () => {
                             Login
                         </button>
                     </div>
-                    <div className="divider my-6">
+                    <div className="divider mt-8">
                         <p className="text-sm font-light text-gray-500 dark:text-gray-400 mb-4">
                             Don't have an account? <Link to={"/register"} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Register here</Link>
                         </p>

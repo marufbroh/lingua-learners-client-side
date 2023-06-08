@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
+import { GoogleAuthProvider, auth } from "firebase/auth";
 
-const AuthProvider = () => {
+
+
+export const AuthContext = createContext(null);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+
+    const authInfo = {
+        user,
+        loading,
+    }
+
     return (
-        <div>
-            
-        </div>
+        <AuthContext.Provider value={authInfo}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 
