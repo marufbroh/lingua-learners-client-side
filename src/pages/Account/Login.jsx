@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import SocialLogin from '../Shared/SocialLogin';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-hot-toast';
@@ -11,6 +11,11 @@ const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
@@ -18,12 +23,12 @@ const Login = () => {
     const onSubmit = (data) => {
         // Handle form submission logic here
         // console.log(data);
-        // TODO: Privete route a kajj korte hobe
         signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 // console.log(user);
                 toast.success("User logged successfully")
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error.message);
