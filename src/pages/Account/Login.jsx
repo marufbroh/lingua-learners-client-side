@@ -18,6 +18,7 @@ const Login = () => {
     const onSubmit = (data) => {
         // Handle form submission logic here
         // console.log(data);
+        // TODO: Privete route a kajj korte hobe
         signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
