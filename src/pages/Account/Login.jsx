@@ -3,8 +3,11 @@ import { useForm } from 'react-hook-form';
 import SocialLogin from '../Shared/SocialLogin';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
+    const { signIn } = useAuth();
     const [passwordVisible, setPasswordVisible] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
@@ -14,7 +17,17 @@ const Login = () => {
 
     const onSubmit = (data) => {
         // Handle form submission logic here
-        console.log(data);
+        // console.log(data);
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                toast.success("User logged successfully")
+            })
+            .catch(error => {
+                console.log(error.message);
+                toast.error(error.message)
+            })
     };
 
     return (
@@ -42,7 +55,7 @@ const Login = () => {
                                 type={passwordVisible ? "text" : "password"}
                                 id="password"
                                 className="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring-black focus:border-black"
-                                {...register("password", {required: true})}
+                                {...register("password", { required: true })}
                             />
                             <button
                                 type="button"
