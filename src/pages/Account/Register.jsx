@@ -27,7 +27,7 @@ const Register = () => {
                 // const user = result.user;
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email };
+                        const saveUser = { name: data.name, image: data.photoURL, email: data.email };
                         axios.post("http://localhost:5000/users", saveUser)
                             .then(data => {
                                 console.log(data.data);
@@ -71,10 +71,10 @@ const Register = () => {
                             Photo URL
                         </label>
                         <input
-                            type="text"
+                            type="url"
                             id="photoURL"
                             className="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring-black focus:border-black"
-                            {...register("photoURL")}
+                            {...register("photoURL", { required: true })}
                         />
                     </div>
                     <div className="mb-4">

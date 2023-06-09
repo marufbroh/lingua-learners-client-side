@@ -115,21 +115,18 @@ const Navbar = () => {
                                 Login
                             </button></Link>
                         }
+
                         {
-                            user && <>
-                                {
-                                    user?.photoURL ?
-                                        <img
-                                            referrerPolicy="no-referrer"
-                                            src={user?.photoURL}
-                                            alt="User Profile"
-                                            className="w-10 h-10 rounded-full"
-                                            data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} data-tooltip-place="right"
-                                        /> :
-                                        <img src={nonUser} alt="User Profile" className="w-10 h-10 rounded-full" />
-                                }
-                            </>
+                            user?.photoURL &&
+                            <img
+                                referrerPolicy="no-referrer"
+                                src={user?.photoURL}
+                                alt="User Profile"
+                                className="w-10 h-10 rounded-full"
+                                data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} data-tooltip-place="right"
+                            />
                         }
+
                         <Tooltip id="my-tooltip" />
                     </div>
                 </div>
