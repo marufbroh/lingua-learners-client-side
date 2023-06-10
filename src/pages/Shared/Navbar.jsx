@@ -144,7 +144,7 @@ const Navbar = () => {
                     <div className="flex items-center lg:gap-5">
                         {user ?
                             <button onClick={handleLogOut} type='button' className='btn btn-outline hidden lg:flex text-white'>
-                                Log Out
+                                Log out
                             </button> :
                             <Link to={"/login"}><button type='button' className='btn btn-outline hidden lg:flex text-white'>
                                 Login
