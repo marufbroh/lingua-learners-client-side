@@ -18,7 +18,7 @@ const SocialLogin = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 // console.log(loggedInUser);
-                const saveUser = { name: loggedInUser.displayName, image: loggedInUser?.photoURL, email: loggedInUser.email }
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
                 axios.post("http://localhost:5000/users", saveUser)
                     .then(data => {
                         // console.log(data.data);

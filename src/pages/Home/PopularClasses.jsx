@@ -6,6 +6,7 @@ const PopularClasses = () => {
     const [classes] = useClasses();
     const approvedClasses = classes.filter(classItem => classItem.status === "approved");
     const sortedClasses = approvedClasses.sort((a, b) => b.enrolled_students - a.enrolled_students);
+    console.log(sortedClasses)
     return (
         <div className='container mx-auto'>
             <div className='flex items-center'>
