@@ -9,7 +9,7 @@ const Classes = () => {
     // console.log(sortedClasses)
     return (
         <div className='container mx-auto'>
-            <h3 className='font-bold text-3xl'>Top Enrolled Classes</h3>
+            <h3 className='font-bold text-3xl'>Classes Pages</h3>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
                 {
                     sortedClasses.map(classItem => <ClassCard key={classItem._id} classItem={classItem} />)

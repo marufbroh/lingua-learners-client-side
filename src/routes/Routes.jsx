@@ -5,6 +5,13 @@ import Login from "../pages/Account/Login";
 import Register from "../pages/Account/Register";
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
+import Dashboard from "../layouts/Dashboard";
+import PrivateRoute from "./PrivateRoute";
+import UserDashboard from "../pages/Dashboard/UserDashboard/UserDashboard";
+import InstructorDashboard from "../pages/Dashboard/InstructorDashboard/InstructorDashboard";
+import InstructorRoute from "./InstructorRoute";
+import AdminRoute from "./AdminRoute";
+import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/instructors",
-                element: <Instructors/>
+                element: <Instructors />
             },
             {
                 path: "/classes",
@@ -33,6 +40,24 @@ const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: "/dashboard",
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        children: [
+            {
+                path: "/dashboard/student",
+                element: <UserDashboard />
+            },
+            {
+                path: "/dashboard/instructor",
+                element: <InstructorRoute><InstructorDashboard /></InstructorRoute>
+            },
+            {
+                path: "/dashboard/admin",
+                element: <AdminRoute><AdminDashboard /></AdminRoute>
+            },
+        ]
+    }
 ]);
 
 export default router

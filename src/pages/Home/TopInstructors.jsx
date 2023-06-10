@@ -7,7 +7,7 @@ const TopInstructors = () => {
     useEffect(() => {
         axios("http://localhost:5000/users/instructors")
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setInstructors(res.data)
             })
     }, [])

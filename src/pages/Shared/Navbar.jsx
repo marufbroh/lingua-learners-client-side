@@ -2,10 +2,13 @@ import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import { Tooltip } from 'react-tooltip';
 import { Link, NavLink } from 'react-router-dom';
-import nonUser from '../../assets/nonuser.png'
+import useInstructor from '../../hooks/useInstructor';
+import useAdmin from '../../hooks/useAdmin';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+    const [isInstructor] = useInstructor();
+    const [isAdmin] = useAdmin();
 
     const handleLogOut = () => {
         logOut()
@@ -24,11 +27,32 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            {
+                                user && !isInstructor && !isAdmin && (
+                                    <li>
+                                        <Link to="/dashboard/student">Dashboard</Link>
+                                    </li>
+                                )
+                            }
+                            {
+                                user && isInstructor && !isAdmin && (
+                                    <li>
+                                        <Link to="/dashboard/instructor">Dashboard</Link>
+                                    </li>
+                                )
+                            }
+                            {
+                                user && !isInstructor && isAdmin && (
+                                    <li>
+                                        <Link to="/dashboard/admin">Dashboard</Link>
+                                    </li>
+                                )
+                            }
                             <li>
                                 <Link
-                                    to='/'
+                                    to='/classes'
                                 >
-                                    Dashboard
+                                    Classes
                                 </Link>
                             </li>
                             <li>
@@ -36,13 +60,6 @@ const Navbar = () => {
                                     to='/instructors'
                                 >
                                     Instructors
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to='/classes'
-                                >
-                                    Classes
                                 </Link>
                             </li>
                             {!user ?
@@ -81,28 +98,44 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to='/instructors'
-                                className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
-                            >
-                                Instructors
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
                                 to='/classes'
                                 className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
                             >
                                 Classes
                             </NavLink>
                         </li>
-                        {user && <li>
+                        <li>
                             <NavLink
-                                to='/v'
+                                to='/instructors'
+                                className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
+                            >
+                                Instructors
+                            </NavLink>
+                        </li>
+                        {user && !isInstructor && !isAdmin && (<li>
+                            <NavLink
+                                to='/dashboard/student'
                                 className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
                             >
                                 Dashboard
                             </NavLink>
-                        </li>}
+                        </li>)}
+                        {user && isInstructor && !isAdmin && (<li>
+                            <NavLink
+                                to='/dashboard/instructor'
+                                className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
+                            >
+                                Dashboard
+                            </NavLink>
+                        </li>)}
+                        {user && !isInstructor && isAdmin && (<li>
+                            <NavLink
+                                to='/dashboard/admin'
+                                className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
+                            >
+                                Dashboard
+                            </NavLink>
+                        </li>)}
                     </ul>
                 </div>
                 <div className="navbar-end">
