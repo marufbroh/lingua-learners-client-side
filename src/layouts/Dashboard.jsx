@@ -39,7 +39,7 @@ const Dashboard = () => {
                                         to='/dashboard/student'
                                         className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                     >
-                                        Home
+                                        Dashboard
                                     </NavLink>
                                 </li>
                                 <li>
