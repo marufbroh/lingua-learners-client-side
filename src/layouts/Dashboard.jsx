@@ -30,17 +30,40 @@ const Dashboard = () => {
                     user && isStudent && (
                         <div className="drawer-side">
                             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                            <ul className="menu p-4 w-80 h-full bg-slate-900 text-base-content">
+                            <ul className="menu p-4 w-80 h-full lg:space-y-6 bg-slate-900 text-base-content">
                                 {/* Sidebar content here */}
                                 <li>
                                     <NavLink
                                         to='/dashboard/student'
-                                        className={`text-white font-bold text-xl tracking-wider ${({ isActive }) => (isActive ? 'bg-white border-b-4 rounded' : '')}`}
+                                        className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                     >
                                         Home
                                     </NavLink>
                                 </li>
-
+                                <li>
+                                    <NavLink
+                                        to='/dashboard/my-selected-classes'
+                                        className="text-white font-bold text-lg lg:text-xl tracking-wider"
+                                    >
+                                        My Selected Classes
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to='/dashboard/my-enrolled-classes'
+                                        className="text-white font-bold text-lg lg:text-xl tracking-wider"
+                                    >
+                                        My Enrolled Classes
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to='/dashboard/payment-history'
+                                        className="text-white font-bold text-lg lg:text-xl tracking-wider"
+                                    >
+                                        Paymnet History
+                                    </NavLink>
+                                </li>
                             </ul>
 
                         </div>
