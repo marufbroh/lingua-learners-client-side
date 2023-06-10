@@ -4,11 +4,13 @@ import { Tooltip } from 'react-tooltip';
 import { Link, NavLink } from 'react-router-dom';
 import useInstructor from '../../hooks/useInstructor';
 import useAdmin from '../../hooks/useAdmin';
+import useStudent from '../../hooks/useStudent';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    const [isInstructor] = useInstructor();
     const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+    const [isStudent] = useStudent();
 
     const handleLogOut = () => {
         logOut()
@@ -28,21 +30,21 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {
-                                user && !isInstructor && !isAdmin && (
+                                user && isStudent && (
                                     <li>
                                         <Link to="/dashboard/student">Dashboard</Link>
                                     </li>
                                 )
                             }
                             {
-                                user && isInstructor && !isAdmin && (
+                                user && isInstructor && (
                                     <li>
                                         <Link to="/dashboard/instructor">Dashboard</Link>
                                     </li>
                                 )
                             }
                             {
-                                user && !isInstructor && isAdmin && (
+                                user && isAdmin && (
                                     <li>
                                         <Link to="/dashboard/admin">Dashboard</Link>
                                     </li>
@@ -112,7 +114,7 @@ const Navbar = () => {
                                 Instructors
                             </NavLink>
                         </li>
-                        {user && !isInstructor && !isAdmin && (<li>
+                        {user && isStudent && (<li>
                             <NavLink
                                 to='/dashboard/student'
                                 className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
@@ -120,7 +122,7 @@ const Navbar = () => {
                                 Dashboard
                             </NavLink>
                         </li>)}
-                        {user && isInstructor && !isAdmin && (<li>
+                        {user && isInstructor && (<li>
                             <NavLink
                                 to='/dashboard/instructor'
                                 className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
@@ -128,7 +130,7 @@ const Navbar = () => {
                                 Dashboard
                             </NavLink>
                         </li>)}
-                        {user && !isInstructor && isAdmin && (<li>
+                        {user && isAdmin && (<li>
                             <NavLink
                                 to='/dashboard/admin'
                                 className={({ isActive }) => (isActive ? 'text-white border-b-4 rounded' : 'text-white')}
