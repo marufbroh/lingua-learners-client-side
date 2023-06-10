@@ -12,6 +12,7 @@ import InstructorDashboard from "../pages/Dashboard/InstructorDashboard/Instruct
 import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
 import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
+import StudentRoute from "./StudentRoute";
 
 const router = createBrowserRouter([
     {
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/dashboard/student",
-                element: <UserDashboard />
+                element: <StudentRoute><UserDashboard /></StudentRoute>
             },
             {
                 path: "/dashboard/instructor",
