@@ -13,6 +13,7 @@ import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
 import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
 import StudentRoute from "./StudentRoute";
+import MySelectedClasses from "../pages/Dashboard/UserDashboard/MySelectedClasses";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/student",
                 element: <StudentRoute><UserDashboard /></StudentRoute>
+            },
+            {
+                path: "/dashboard/my-selected-classes",
+                element: <StudentRoute><MySelectedClasses /></StudentRoute>
             },
             {
                 path: "/dashboard/instructor",
