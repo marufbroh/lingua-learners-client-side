@@ -24,11 +24,9 @@ const Dashboard = () => {
         <div>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content">
+                <div className="drawer-content flex flex-col items-center justify-center">
                     {/* Page content here */}
-                    <div className='text-center'>
-                        <label htmlFor="my-drawer-2" className="btn btn-outline drawer-button lg:hidden">Open drawer</label>
-                    </div>
+                    <label htmlFor="my-drawer-2" className="btn btn-outline drawer-button lg:hidden">Open drawer</label>
                     <Outlet />
 
                 </div>

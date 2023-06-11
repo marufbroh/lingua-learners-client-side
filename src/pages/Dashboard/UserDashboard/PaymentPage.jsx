@@ -11,11 +11,12 @@ const PaymentPage = () => {
     const [selectedClasses] = useSelectedClassess();
 
     const classPayment = selectedClasses.find(selectedClasse => selectedClasse._id === classId)
-    console.log(classPayment)
+    const price = parseFloat((classPayment.price).toFixed(2))
+    // console.log(price)
     return (
-        <div>
+        <div className='w-1/2'>
             <Elements stripe={stripePromise}>
-                <CheckOutForm classPayment={classPayment} />
+                <CheckOutForm classPayment={classPayment} price={price} />
             </Elements>
         </div>
     );
