@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import moment from 'moment/moment';
 
 const PaymentHistory = () => {
     const { user } = useAuth();
@@ -18,6 +19,7 @@ const PaymentHistory = () => {
 
     return (
         <div className='container lg:w-3/4 mx-auto'>
+            {/* TODO: paymet data modification */}
             <h3 className='text-3xl font-bold'>Your all payment history</h3>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -36,8 +38,8 @@ const PaymentHistory = () => {
                                 <td>{index + 1}</td>
                                 <td>{classItem.enrolledClass.student_email}</td>
                                 <td>{classItem.enrolledClass.class_name}</td>
-                                <td>${classItem.enrolledClass.price}</td>
-                                <td>${classItem.date}</td>
+                                <td>${classItem.enrolledClass.price}</td>                               
+                                <td>{moment(classItem.date).format('MMMM Do YYYY, h:mm:ss a')}</td>
                             </tr>)
                         }
                     </tbody>
