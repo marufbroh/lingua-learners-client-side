@@ -16,7 +16,7 @@ const CheckOutForm = ({ classPayment, price }) => {
     const [processing, setProcessing] = useState(false);
     // const [transactionId, setTransactionId] = useState("");
     const navigate = useNavigate();
-    const { class_name, selectedClassId, student_email, _id: selectedClassDbID } = classPayment;
+    const { class_name, class_image, instructor_name, selectedClassId, student_email, _id: selectedClassDbId } = classPayment;
 
     useEffect(() => {
         if (price > 0) {
@@ -47,7 +47,7 @@ const CheckOutForm = ({ classPayment, price }) => {
 
         if (error) {
             console.log('[error]', error);
-           return setCardError(error.message);
+            return setCardError(error.message);
         } else {
             // console.log('[PaymentMethod]', paymentMethod);
             setCardError('')
@@ -76,13 +76,10 @@ const CheckOutForm = ({ classPayment, price }) => {
             // setTransactionId(paymentIntent.id);
             toast.success(`Payment succeeded with transaction Id ${paymentIntent.id}`)
             const payment = {
-                student_email,
                 transactionId: paymentIntent.id,
                 date: new Date(),
-                selectedClassId,
-                class_name,
-                price,
-                selectedClassDbID
+                enrolledClass: { student_email, selectedClassId, class_name, class_image, instructor_name, price },
+                selectedClassDbId
             }
             axiosSecure.post("/payments", payment)
                 .then(res => {

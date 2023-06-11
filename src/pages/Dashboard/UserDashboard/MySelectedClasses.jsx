@@ -68,7 +68,7 @@ const MySelectedClasses = () => {
                                 </td>
                                 <td>{selectedClass.class_name}</td>
                                 <td>{selectedClass.instructor_name}</td>
-                                <td>{selectedClass.price}</td>
+                                <td>${selectedClass.price}</td>
                                 <td>
                                     <button onClick={() => handleDelete(selectedClass)} className="btn btn-error text-lg"><FaTrashAlt /></button>
                                 </td>
