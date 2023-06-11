@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useSelectedClassess from '../../../hooks/useSelectedClassess';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const MySelectedClasses = () => {
     const [selectedClasses, refetch] = useSelectedClassess();
@@ -21,7 +22,7 @@ const MySelectedClasses = () => {
             if (result.isConfirmed) {
                 axios.delete(`http://localhost:5000/selected-classess/${secItem._id}`)
                     .then(data => {
-                        console.log(data)
+                        // console.log(data)
                         if (data.data.deletedCount > 0) {
                             refetch();
                             Swal.fire(
@@ -38,9 +39,6 @@ const MySelectedClasses = () => {
         })
     }
 
-    const handlePayment = () => {
-        //
-    }
     return (
         <div className='container lg:w-3/4 mx-auto'>
             <h3 className='text-3xl font-bold'>Your all selected classes</h3>
@@ -75,7 +73,7 @@ const MySelectedClasses = () => {
                                     <button onClick={() => handleDelete(selectedClass)} className="btn btn-error text-lg"><FaTrashAlt /></button>
                                 </td>
                                 <td>
-                                    <button onClick={() => handlePayment(selectedClass)} className="btn btn-success text-sm">Pay</button>
+                                    <Link to={`/dashboard/payment/${selectedClass._id}`} className="btn btn-success text-sm">Pay</Link>
                                 </td>
                             </tr>)
                         }
