@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const CheckOutForm = ({ classPayment, price }) => {
-    // console.log(classPayment)
+    // console.log(price)
     const { class_name, selectedClassId, student_email, _id: selectedClassDbID } = classPayment;
     // console.log(selectedClassDbID)
     // const price
@@ -17,6 +18,7 @@ const CheckOutForm = ({ classPayment, price }) => {
     const [clientSecret, setClientSecret] = useState("");
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (price > 0) {
@@ -82,11 +84,12 @@ const CheckOutForm = ({ classPayment, price }) => {
                 selectedClassDbID
             }
             axiosSecure.post("/payments", payment)
-            .then(res => {
-                if (res.data.insertResult.insertedId){
-                    toast.success("Payment added on database")
-                }
-            })
+                .then(res => {
+                    if (res.data.insertResult.insertedId) {
+                        toast.success("Payment added on database")
+                    }
+                })
+            navigate(-1)
         }
 
     }

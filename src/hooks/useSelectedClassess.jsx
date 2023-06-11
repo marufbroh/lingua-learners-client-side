@@ -8,7 +8,7 @@ const useSelectedClassess = () => {
     const token = localStorage.getItem("access-token")
     const [axiosSecure] = useAxiosSecure();
 
-    const { data: selectedClasses = [], refetch } = useQuery({
+    const { data: selectedClasses = [], refetch, isLoading: selectedClassesLoading } = useQuery({
         queryKey: ["selectedClasses", user?.email],
         enabled: !!user?.email && !!token,
         queryFn: async () => {
@@ -17,7 +17,7 @@ const useSelectedClassess = () => {
             return response.data;
         }
     })
-    return [selectedClasses, refetch]
+    return [selectedClasses, refetch, selectedClassesLoading]
 };
 
 export default useSelectedClassess;
