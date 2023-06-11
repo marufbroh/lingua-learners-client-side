@@ -7,9 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 const CheckOutForm = ({ classPayment, price }) => {
     // console.log(price)
-    const { class_name, selectedClassId, student_email, _id: selectedClassDbID } = classPayment;
-    // console.log(selectedClassDbID)
-    // const price
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -17,8 +14,9 @@ const CheckOutForm = ({ classPayment, price }) => {
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState("");
     const [processing, setProcessing] = useState(false);
-    const [transactionId, setTransactionId] = useState("");
+    // const [transactionId, setTransactionId] = useState("");
     const navigate = useNavigate();
+    const { class_name, selectedClassId, student_email, _id: selectedClassDbID } = classPayment;
 
     useEffect(() => {
         if (price > 0) {
@@ -42,16 +40,16 @@ const CheckOutForm = ({ classPayment, price }) => {
             return;
         }
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
 
         if (error) {
             console.log('[error]', error);
-            setCardError(error.message);
+           return setCardError(error.message);
         } else {
-            console.log('[PaymentMethod]', paymentMethod);
+            // console.log('[PaymentMethod]', paymentMethod);
             setCardError('')
         }
 
@@ -75,9 +73,12 @@ const CheckOutForm = ({ classPayment, price }) => {
 
         setProcessing(false)
         if (paymentIntent.status === "succeeded") {
-            setTransactionId(paymentIntent.id);
+            // setTransactionId(paymentIntent.id);
+            toast.success(`Payment succeeded with transaction Id ${paymentIntent.id}`)
             const payment = {
                 student_email,
+                transactionId: paymentIntent.id,
+                date: new Date(),
                 selectedClassId,
                 class_name,
                 price,
@@ -114,7 +115,7 @@ const CheckOutForm = ({ classPayment, price }) => {
                 }}
             />
             {cardError && <p className='text-red-600'>{cardError}</p>}
-            {transactionId && <p className='text-green-600'>Payment succeeded with transaction Id {transactionId}</p>}
+            {/* {transactionId && <p className='text-green-600'>Payment succeeded with transaction Id {transactionId}</p>} */}
             <button className='btn btn-outline font-bold w-2/5 border-neutral-content' type="submit" disabled={!stripe || !clientSecret || processing}>
                 Pay
             </button>
