@@ -1,7 +1,5 @@
 import React from 'react';
 import useClasses from '../../hooks/useClasses';
-import ClassCard from './ClassCard';
-import classImg from '../../assets/class-img.svg'
 
 const PopularClasses = () => {
     const [classes] = useClasses();
