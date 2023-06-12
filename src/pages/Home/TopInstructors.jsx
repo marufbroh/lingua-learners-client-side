@@ -5,7 +5,7 @@ const TopInstructors = () => {
     const [instructors, setInstructors] = useState([]);
 
     useEffect(() => {
-        axios("http://localhost:5000/users/instructors")
+        axios("https://ph-assignment-12-server-endgame.vercel.app/users/instructors")
             .then(res => {
                 // console.log(res.data)
                 setInstructors(res.data)

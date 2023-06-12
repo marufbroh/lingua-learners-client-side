@@ -20,7 +20,7 @@ const MySelectedClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/selected-classess/${secItem._id}`)
+                axios.delete(`https://ph-assignment-12-server-endgame.vercel.app/selected-classess/${secItem._id}`)
                     .then(data => {
                         // console.log(data)
                         if (data.data.deletedCount > 0) {

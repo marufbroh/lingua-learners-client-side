@@ -1,18 +1,8 @@
-import AOS from 'aos';
-import React, { useEffect } from 'react';
-import 'aos/dist/aos.css';
+import React from 'react';
 
 const ContactSection = () => {
-    useEffect(() => {
-        AOS.init({
-            offset: 200,
-            duration: 1000,
-            easing: 'ease-in-out',
-            delay: 150,
-        });
-    }, [])
     return (
-        <section data-aos="fade-up" className="bg-gray-200 py-12 my-12">
+        <section className="bg-gray-200 py-12 my-12">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2>
                 <div className="max-w-lg mx-auto">

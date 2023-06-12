@@ -5,6 +5,7 @@ import useAuth from '../hooks/useAuth';
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
 import useStudent from '../hooks/useStudent';
+import { FaHome, FaGratipay, FaPaypal, FaCartPlus, FaArrowCircleRight, FaShapes, FaRegHourglass, FaUsers } from 'react-icons/fa'
 
 const Dashboard = () => {
     const { user, logOut } = useAuth();
@@ -43,7 +44,7 @@ const Dashboard = () => {
                                             to='/dashboard/student'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            Dashboard
+                                            <FaHome /> Dashboard
                                         </NavLink>
                                     </li>
                                     <li>
@@ -51,7 +52,7 @@ const Dashboard = () => {
                                             to='/dashboard/my-selected-classes'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            My Selected Classes
+                                            <FaCartPlus /> My Selected Classes
                                         </NavLink>
                                     </li>
                                     <li>
@@ -59,7 +60,7 @@ const Dashboard = () => {
                                             to='/dashboard/my-enrolled-classes'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            My Enrolled Classes
+                                            <FaGratipay /> My Enrolled Classes
                                         </NavLink>
                                     </li>
                                     <li>
@@ -67,7 +68,7 @@ const Dashboard = () => {
                                             to='/dashboard/payment-history'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            Paymnet History
+                                            <FaPaypal /> Paymnet History
                                         </NavLink>
                                     </li>
                                 </ul>
@@ -81,7 +82,7 @@ const Dashboard = () => {
                                             to='/dashboard/instructor'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            Dashboard
+                                            <FaHome /> Dashboard
                                         </NavLink>
                                     </li>
                                     <li>
@@ -89,7 +90,7 @@ const Dashboard = () => {
                                             to='/dashboard/add-class'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            Add A Class
+                                            <FaArrowCircleRight /> Add A Class
                                         </NavLink>
                                     </li>
                                     <li>
@@ -97,7 +98,7 @@ const Dashboard = () => {
                                             to='/dashboard/my-classes'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            My Classes
+                                            <FaShapes /> My Classes
                                         </NavLink>
                                     </li>
                                 </ul>
@@ -111,7 +112,7 @@ const Dashboard = () => {
                                             to='/dashboard/admin'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            Dashboard
+                                            <FaHome /> Dashboard
                                         </NavLink>
                                     </li>
                                     <li>
@@ -119,7 +120,7 @@ const Dashboard = () => {
                                             to='/dashboard/manage-classes'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            Manage Classes
+                                            <FaRegHourglass /> Manage Classes
                                         </NavLink>
                                     </li>
                                     <li>
@@ -127,7 +128,7 @@ const Dashboard = () => {
                                             to='/dashboard/manage-users'
                                             className="text-white font-bold text-lg lg:text-xl tracking-wider"
                                         >
-                                            Manage Users
+                                            <FaUsers /> Manage Users
                                         </NavLink>
                                     </li>
                                 </ul>

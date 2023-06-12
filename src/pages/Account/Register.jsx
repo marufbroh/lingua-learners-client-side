@@ -28,7 +28,7 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, image: data.photoURL, email: data.email, role: "student" };
-                        axios.post("http://localhost:5000/users", saveUser)
+                        axios.post("https://ph-assignment-12-server-endgame.vercel.app/users", saveUser)
                             .then(data => {
                                 // console.log(data.data);
                                 if (data.data.insertedId) {

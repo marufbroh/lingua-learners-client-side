@@ -19,7 +19,7 @@ const SocialLogin = () => {
                 const loggedInUser = result.user;
                 // console.log(loggedInUser);
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, role: "student" }
-                axios.post("http://localhost:5000/users", saveUser)
+                axios.post("https://ph-assignment-12-server-endgame.vercel.app/users", saveUser)
                     .then(data => {
                         // console.log(data.data);
                         if (data.data.insertedId) {
