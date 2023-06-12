@@ -19,7 +19,6 @@ const PaymentHistory = () => {
 
     return (
         <div className='container lg:w-3/4 mx-auto'>
-            {/* TODO: paymet data modification */}
             <h3 className='text-3xl font-bold'>Your all payment history</h3>
             <div className="overflow-x-auto">
                 <table className="table">

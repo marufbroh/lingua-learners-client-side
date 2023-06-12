@@ -73,6 +73,36 @@ const Dashboard = () => {
                                 </ul>
                             )
                         }
+                        {
+                            user && isInstructor && (
+                                <ul className='menu lg:space-y-6'>
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/instructor'
+                                            className="text-white font-bold text-lg lg:text-xl tracking-wider"
+                                        >
+                                            Dashboard
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/add-class'
+                                            className="text-white font-bold text-lg lg:text-xl tracking-wider"
+                                        >
+                                            Add A Class
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/my-classes'
+                                            className="text-white font-bold text-lg lg:text-xl tracking-wider"
+                                        >
+                                            My Classes
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                            )
+                        }
                         <div className="divider bg-white rounded">or</div>
                         <ul className='menu lg:space-y-6'>
                             <li>

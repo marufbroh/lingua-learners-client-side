@@ -17,6 +17,8 @@ import MySelectedClasses from "../pages/Dashboard/UserDashboard/MySelectedClasse
 import MyEnrolledClasses from "../pages/Dashboard/UserDashboard/MyEnrolledClasses";
 import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory";
 import PaymentPage from "../pages/Dashboard/UserDashboard/PaymentPage";
+import AddAClass from "../pages/Instructors/AddAClass";
+import MyClasses from "../pages/Instructors/MyClasses";
 
 const router = createBrowserRouter([
     {
@@ -75,6 +77,14 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/instructor",
                 element: <InstructorRoute><InstructorDashboard /></InstructorRoute>
+            },
+            {
+                path: "/dashboard/add-class",
+                element: <InstructorRoute><AddAClass/></InstructorRoute>
+            },
+            {
+                path: "/dashboard/my-classes",
+                element: <InstructorRoute><MyClasses/></InstructorRoute>
             },
 
             // admin dashboard route
