@@ -8,11 +8,11 @@ const Classes = () => {
     const sortedClasses = approvedClasses.sort((a, b) => b.enrolled_students - a.enrolled_students);
     // console.log(sortedClasses)
     return (
-        <div className='container mx-auto'>
-            <h3 className='font-bold text-3xl'>Classes Pages</h3>
+        <div className='container mx-auto my-12'>
+            <h3 className='font-bold text-5xl mb-6 text-center'>Classes Pages</h3>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
                 {
-                    sortedClasses.map(classItem => <ClassCard key={classItem._id} classItem={classItem} />)
+                    sortedClasses?.map(classItem => <ClassCard key={classItem._id} classItem={classItem} />)
                 }
             </div>
         </div>

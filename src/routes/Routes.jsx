@@ -21,11 +21,13 @@ import AddAClass from "../pages/Instructors/AddAClass";
 import MyClasses from "../pages/Dashboard/InstructorDashboard/MyClasses";
 import ManageClasses from "../pages/Dashboard/AdminDashboard/ManageClasses";
 import ManageUsers from "../pages/Dashboard/AdminDashboard/ManageUsers";
+import ErrorPage from "../pages/Shared/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
@@ -52,6 +54,7 @@ const router = createBrowserRouter([
     {
         path: "/dashboard",
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        errorElement: <ErrorPage />,
         children: [
             // user dashboard routes
             {

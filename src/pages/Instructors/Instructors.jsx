@@ -13,11 +13,11 @@ const Instructors = () => {
     }, [])
 
     return (
-        <div className='container mx-auto'>
-            <h3 className='font-bold text-3xl text-center'>Instructors Page</h3>
+        <div className='container mx-auto my-12'>
+            <h3 className='font-bold text-5xl text-center mb-6'>Instructors Page</h3>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
                 {
-                    instructors.map(instructorItem => <div key={instructorItem._id} className="w-full rounded-lg overflow-hidden shadow-lg">
+                    instructors?.map(instructorItem => <div key={instructorItem._id} className="w-full rounded-lg overflow-hidden shadow-lg">
                         <img className="w-full" src={instructorItem.image} alt={instructorItem.name} />
                         <div className="px-6 py-4">
                             <h3 className="font-bold text-2xl mb-2">{instructorItem.name}</h3>

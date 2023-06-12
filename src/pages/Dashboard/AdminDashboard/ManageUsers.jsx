@@ -31,8 +31,8 @@ const ManageUsers = () => {
     }
 
     return (
-        <div className='container lg:w-3/4 mx-auto'>
-            <h3 className='text-3xl font-bold'>All users here</h3>
+        <div className='container lg:w-3/4 mx-auto my-12'>
+            <h3 className='text-5xl font-bold text-center mb-6'>All users here</h3>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>

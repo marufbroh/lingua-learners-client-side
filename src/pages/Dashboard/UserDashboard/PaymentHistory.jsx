@@ -19,7 +19,7 @@ const PaymentHistory = () => {
 
     return (
         <div className='container lg:w-3/4 mx-auto'>
-            <h3 className='text-3xl font-bold'>Your all payment history</h3>
+            <h3 className='text-5xl font-bold text-center mb-6'>Your all payment history</h3>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
@@ -33,7 +33,7 @@ const PaymentHistory = () => {
                     </thead>
                     <tbody>
                         {
-                            paymentHistory.map((classItem, index) => <tr key={classItem._id}>
+                            paymentHistory?.map((classItem, index) => <tr key={classItem._id}>
                                 <td>{index + 1}</td>
                                 <td>{classItem.enrolledClass.student_email}</td>
                                 <td>{classItem.enrolledClass.class_name}</td>

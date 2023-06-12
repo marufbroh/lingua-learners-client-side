@@ -41,7 +41,7 @@ const MySelectedClasses = () => {
 
     return (
         <div className='container lg:w-3/4 mx-auto'>
-            <h3 className='text-3xl font-bold'>Your all selected classes</h3>
+            <h3 className='text-5xl font-bold mb-6 text-center'>Your all selected classes</h3>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
@@ -57,7 +57,7 @@ const MySelectedClasses = () => {
                     </thead>
                     <tbody>
                         {
-                            selectedClasses.map((selectedClass, index) => <tr key={selectedClass._id}>
+                            selectedClasses?.map((selectedClass, index) => <tr key={selectedClass._id}>
                                 <td>{index + 1}</td>
                                 <td>
                                     <div className="avatar">

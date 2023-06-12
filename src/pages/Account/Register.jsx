@@ -30,7 +30,7 @@ const Register = () => {
                         const saveUser = { name: data.name, image: data.photoURL, email: data.email, role: "student" };
                         axios.post("http://localhost:5000/users", saveUser)
                             .then(data => {
-                                console.log(data.data);
+                                // console.log(data.data);
                                 if (data.data.insertedId) {
                                     reset()
                                     toast.success("User created successfully")

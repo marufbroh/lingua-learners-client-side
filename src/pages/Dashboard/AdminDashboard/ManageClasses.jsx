@@ -56,11 +56,11 @@ const ManageClasses = () => {
 
 
     return (
-        <div className='container mx-auto'>
-            <h3 className='font-bold text-3xl'>Your classes here</h3>
+        <div className='container mx-auto my-12'>
+            <h3 className='font-bold text-5xl text-center mb-6'>All classes here</h3>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
                 {
-                    classes.map(admClass => <div key={admClass._id} className="card bg-base-100 shadow-xl">
+                    classes?.map(admClass => <div key={admClass._id} className="card bg-base-100 shadow-xl">
                         <figure><img src={admClass.class_image} alt={admClass.language} /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-2xl">
