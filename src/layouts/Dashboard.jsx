@@ -103,6 +103,36 @@ const Dashboard = () => {
                                 </ul>
                             )
                         }
+                        {
+                            user && isAdmin && (
+                                <ul className='menu lg:space-y-6'>
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/admin'
+                                            className="text-white font-bold text-lg lg:text-xl tracking-wider"
+                                        >
+                                            Dashboard
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/manage-classes'
+                                            className="text-white font-bold text-lg lg:text-xl tracking-wider"
+                                        >
+                                            Manage Classes
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/manage-users'
+                                            className="text-white font-bold text-lg lg:text-xl tracking-wider"
+                                        >
+                                            Manage Users
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                            )
+                        }
                         <div className="divider bg-white rounded">or</div>
                         <ul className='menu lg:space-y-6'>
                             <li>
