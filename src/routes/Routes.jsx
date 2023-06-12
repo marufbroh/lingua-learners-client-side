@@ -18,7 +18,7 @@ import MyEnrolledClasses from "../pages/Dashboard/UserDashboard/MyEnrolledClasse
 import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory";
 import PaymentPage from "../pages/Dashboard/UserDashboard/PaymentPage";
 import AddAClass from "../pages/Instructors/AddAClass";
-import MyClasses from "../pages/Instructors/MyClasses";
+import MyClasses from "../pages/Dashboard/InstructorDashboard/MyClasses";
 
 const router = createBrowserRouter([
     {
