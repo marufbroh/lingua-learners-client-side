@@ -9,7 +9,7 @@ const PopularClasses = () => {
     const sortedClasses = approvedClasses.sort((a, b) => b.enrolled_students - a.enrolled_students);
     // console.log(sortedClasses)
     return (
-        <div className='container mx-auto my-20'>
+        <div className='container mx-auto my-12'>
             <h2 className='font-bold text-5xl text-center mb-6'>Top Enrolled Classes</h2>
             <p className='text-xl font-bold mb-6 text-center'>Popular Language Classes for an Unforgettable Summer Camp Experience!!</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
