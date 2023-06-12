@@ -25,7 +25,7 @@ const MyClasses = () => {
                             <div className="card-actions justify-end">
 
                                 {
-                                    insClass.status === "denied" && <><div className="btn btn-outline btn-sm" onClick={() => window.my_modal_2.showModal()}>see feedback</div>
+                                    insClass.status !== "pending" && <><div className="btn btn-outline btn-sm" onClick={() => window.my_modal_2.showModal()}>see feedback</div>
                                         <dialog id="my_modal_2" className="modal">
                                             <form method="dialog" className="modal-box">
                                                 <h3 className="font-bold text-lg">Admin Feedback!</h3>
